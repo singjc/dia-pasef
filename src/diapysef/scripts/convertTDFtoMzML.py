@@ -6,6 +6,7 @@ from __future__ import print_function
 """
 import argparse
 import sys
+import os
 import sqlite3
 import time
 import pyopenms
@@ -24,7 +25,7 @@ try:
         libname = "timsdata.dll"
         dll = cdll.LoadLibrary(libname)
     elif sys.platform[:5] == "linux":
-        libname = "libtimsdata.so"
+        libname = os.path.join("../sandbox/", "libtimsdata.so")
         dll = cdll.LoadLibrary(libname)
     else:
         raise Exception("Unsupported platform.")
